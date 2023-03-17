@@ -13,11 +13,11 @@ Cylinder::Cylinder(const string& name, const double radius, const double height)
 }
 
 double Cylinder::getArea() const {
-    return 4 * PI * radius * radius;
+    return 2 * PI * radius * height + 2 * PI * radius * radius;
 }
 
 double Cylinder::getVolume() const {
-    return 4/3 * PI * radius * radius * radius;
+    return PI * radius * radius * height;
 }
 
 bool Cylinder::test(const vector<string>& cond) const {

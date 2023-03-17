@@ -19,7 +19,7 @@ double Sphere::getArea() const {
 }
 
 double Sphere::getVolume() const {
-    return 4/3 * PI * radius * radius * radius;
+    return 4 * PI * radius * radius * radius / 3;
 }
 
 bool Sphere::test(const vector<string>& cond) const {
