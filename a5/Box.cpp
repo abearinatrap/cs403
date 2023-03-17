@@ -1,5 +1,6 @@
 #include "Shape.h"
 #include "Box.h"
+#include <iostream>
 #include <sstream>
 #include <iomanip>
 #include <string>
@@ -56,7 +57,7 @@ bool Box::test(const vector<string>& cond) const {
                 if (getArea() != stod(value)) return false;
             }
             else if (op == "!=") {
-                if (getArea() == stod(value)) return false;
+                if (getArea() == std::stod(value)) return false;
             }
             else if (op == ">=") {
                 if (getArea() < stod(value)) return false;

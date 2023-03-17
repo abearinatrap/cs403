@@ -2,6 +2,7 @@
 #include "Sphere.h"
 #include <sstream>
 #include <string>
+#include <iostream>
 #include <iomanip>
 
 using namespace std;
