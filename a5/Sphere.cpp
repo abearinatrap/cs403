@@ -28,7 +28,7 @@ bool Sphere::test(const vector<string>& cond) const {
     string op;
     string value;
 
-    for(int i=0; i<num_cond; i+=3){
+    for(uint i=0; i<num_cond; i+=3){
         name = cond[i];
         op = cond[i+1];
         value = cond[i+2];
