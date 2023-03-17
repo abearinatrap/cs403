@@ -1,11 +1,8 @@
 #include "Shape.h"
 #include "Cylinder.h"
 #include <sstream>
-#include <iomanip>
-#include <string>
 #include <iostream>
-#include <cstring>
-
+#include <iomanip>
 using namespace std;
 
 const std::string Cylinder::shapetype = "cylinder";

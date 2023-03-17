@@ -7,7 +7,7 @@
 
 #define PI  3.14159265358979323846
 
-
+using namespace std;
 
 class Cylinder: public Shape {
 public:
