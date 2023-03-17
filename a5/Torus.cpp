@@ -1,6 +1,7 @@
 #include "Shape.h"
 #include "Torus.h"
 #include <sstream>
+#include <string>
 #include <iomanip>
 
 using namespace std;
