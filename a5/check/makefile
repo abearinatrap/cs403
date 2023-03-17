@@ -15,11 +15,11 @@ Shape.o: Shape.h
  
 Sphere.o: Sphere.h Shape.h
 
-Cylinder.o : Cylinder.h Shape.h
+Cylinder.o : cylinder.h Shape.h
 
-Torus.o : Torus.h Shape.h
+Torus.o : torus.h Shape.h
 
-Box.o : Box.h Shape.h
+Box.o : box.h Shape.h
 
 reading.o: reading.h
 
