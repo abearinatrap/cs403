@@ -19,7 +19,7 @@ double Torus::getArea() const {
 }
 
 double Torus::getVolume() const {
-    return PI * smallRadius * 2 * PI * bigRadius;
+    return PI * smallRadius * smallRadius * 2 * PI * bigRadius;
 }
 
 bool Torus::test(const vector<string>& cond) const {
