@@ -1,14 +1,9 @@
 #include "Shape.h"
-#include "Cylinder.h"
+#include "cylinder.h"
 #include <sstream>
-#include <iomanip>
-#include <string>
 #include <iostream>
-#include <cstring>
-
+#include <iomanip>
 using namespace std;
-
-const std::string Cylinder::shapetype = "cylinder";
 
 Cylinder::Cylinder(const string& name, const double radius, const double height)
     : Shape(name), radius(radius), height(height)
@@ -16,44 +11,50 @@ Cylinder::Cylinder(const string& name, const double radius, const double height)
 }
 
 double Cylinder::getArea() const {
-    return 4 * PI * radius * radius;
+    return 2 * PI * radius * height + 2 * PI * radius * radius;
 }
 
 double Cylinder::getVolume() const {
-    return 4/3 * PI * radius * radius * radius;
+    return PI * radius * radius * height;
 }
 
-bool Cylinder::test(const vector<string>& cond) const {
-    size_t num_cond = cond.size();
-    string name;
+bool Cylinder::test(const vector<string>& cond) const{
+    unsigned int size = cond.size();
+    string shape = "cylinder";
+    string type;
     string op;
     string value;
+    for (unsigned int i = 0; i < size; i++) {
+        // Name
+        type = cond.at(i);
+        i++;
+        // Operator
+        op = cond.at(i);
+        i++;
+        // Value
+        value = cond.at(i);
 
-    for(int i=0; i<num_cond; i+=3){
-        name = cond[i];
-        op = cond[i+1];
-        value = cond[i+2];
-        if (name == "type"){
+        if (type == "type") {
             if (op == "==") {
-                if (shapetype != value) return false;
+                if ("cylinder" != value) return false;
             }
             else if (op == "!=") {
-                if (shapetype == value) return false;
+                if ("cylinder" == value) return false;
             }
             else if (op == ">=") {
-                if (shapetype.compare(value) < 0) return false;
+                if (shape.compare(value) < 0) return false;
             }
             else if (op == "<=") {
-                if (shapetype.compare(value) > 0) return false;
+                if (shape.compare(value) > 0) return false;
             }
             else if (op == ">") {
-                if (shapetype.compare(value) <= 0) return false;
+                if (shape.compare(value) <= 0) return false;
             }
             else if (op == "<") {
-                if (shapetype.compare(value) >= 0) return false;
+                if (shape.compare(value) >= 0) return false;
             }
         }
-        else if (name == "area") {
+        else if (type == "area") {
             if (op == "==") {
                 if (getArea() != stod(value)) return false;
             }
@@ -73,7 +74,7 @@ bool Cylinder::test(const vector<string>& cond) const {
                 if (getArea() >= stod(value)) return false;
             }
         }
-        else if (name == "volume") {
+        else if (type == "volume") {
             if (op == "==") {
                 if (getVolume() != stod(value)) return false;
             }
@@ -93,9 +94,7 @@ bool Cylinder::test(const vector<string>& cond) const {
                 if (getVolume() >= stod(value)) return false;
             }
         }
-
     }
-
     return true;
 }
 

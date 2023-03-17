@@ -1,59 +1,64 @@
 #include "Shape.h"
-#include "Cylinder.h"
+#include "sphere.h"
 #include <sstream>
-#include <iomanip>
-#include <string>
 #include <iostream>
-#include <cstring>
-
+#include <iomanip>
 using namespace std;
 
-const std::string Cylinder::shapetype = "cylinder";
-
-Cylinder::Cylinder(const string& name, const double radius, const double height)
-    : Shape(name), radius(radius), height(height)
+Sphere::Sphere(const string& name, const double radius)
+    : Shape(name), radius(radius)
 {  
 }
 
-double Cylinder::getArea() const {
+// void Sphere::setRadius(double radius) {
+//     this->radius = radius;
+// }
+
+double Sphere::getArea() const {
     return 4 * PI * radius * radius;
 }
 
-double Cylinder::getVolume() const {
-    return 4/3 * PI * radius * radius * radius;
+double Sphere::getVolume() const {
+    return 4 *  PI * radius * radius * radius /3;
 }
 
-bool Cylinder::test(const vector<string>& cond) const {
-    size_t num_cond = cond.size();
-    string name;
+bool Sphere::test(const vector<string>& cond) const{
+    unsigned int size = cond.size();
+    string shape = "sphere";
+    string type;
     string op;
     string value;
+    for (unsigned int i = 0; i < size; i++) {
+        // Name
+        type = cond.at(i);
+        i++;
+        // Operator
+        op = cond.at(i);
+        i++;
+        // Value
+        value = cond.at(i);
 
-    for(int i=0; i<num_cond; i+=3){
-        name = cond[i];
-        op = cond[i+1];
-        value = cond[i+2];
-        if (name == "type"){
+        if (type == "type") {
             if (op == "==") {
-                if (shapetype != value) return false;
+                if ("sphere" != value) return false;
             }
             else if (op == "!=") {
-                if (shapetype == value) return false;
+                if ("sphere" == value) return false;
             }
             else if (op == ">=") {
-                if (shapetype.compare(value) < 0) return false;
+                if (shape.compare(value) < 0) return false;
             }
             else if (op == "<=") {
-                if (shapetype.compare(value) > 0) return false;
+                if (shape.compare(value) > 0) return false;
             }
             else if (op == ">") {
-                if (shapetype.compare(value) <= 0) return false;
+                if (shape.compare(value) <= 0) return false;
             }
             else if (op == "<") {
-                if (shapetype.compare(value) >= 0) return false;
+                if (shape.compare(value) >= 0) return false;
             }
         }
-        else if (name == "area") {
+        else if (type == "area") {
             if (op == "==") {
                 if (getArea() != stod(value)) return false;
             }
@@ -73,7 +78,7 @@ bool Cylinder::test(const vector<string>& cond) const {
                 if (getArea() >= stod(value)) return false;
             }
         }
-        else if (name == "volume") {
+        else if (type == "volume") {
             if (op == "==") {
                 if (getVolume() != stod(value)) return false;
             }
@@ -93,15 +98,13 @@ bool Cylinder::test(const vector<string>& cond) const {
                 if (getVolume() >= stod(value)) return false;
             }
         }
-
     }
-
     return true;
 }
 
-string Cylinder::getInfo() const {
+string Sphere::getInfo() const {
     stringstream ss;
-    ss << "Cylinder: " << fixed << setprecision(2) <<  getName() << ", Radius=" << radius << ", Height=" << height << "\n\tSurface Area: " << getArea() << ", Volume: " << getVolume();
+    ss << "Sphere: " << fixed << setprecision(2) <<  getName() << ", Radius=" << radius << "\n\tSurface Area: " << getArea() << ", Volume: " << getVolume();
     string info = ss.str();
     return info;
 }
