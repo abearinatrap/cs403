@@ -33,7 +33,7 @@ vector<Shape*> *readFrom(string file) {
         string type = words[1];
         if (type == "sphere") {
             double r = stod(words[2]);
-            Sphere *shape = new Sphere( words[0], r);
+            Sphere *shape = new Sphere(words[0], r);
             shapes->push_back(shape);
         }
         else if (type == "cylinder") {
@@ -50,9 +50,9 @@ vector<Shape*> *readFrom(string file) {
             shapes->push_back(shape);
         }
         else if (type == "torus") {
-            double smallR = stod(words[2]);
-            double bigR = stod(words[3]);
-            Torus *shape = new Torus(words[0], smallR, bigR);
+            double inner = stod(words[2]);
+            double outer = stod(words[3]);
+            Torus *shape = new Torus(words[0], inner, outer);
             shapes->push_back(shape);
         }
     }
