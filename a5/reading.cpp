@@ -25,6 +25,7 @@ vector<Shape*> *readFrom(string file) {
         string s;
         vector<string> words;
         stringstream ss(line); 
+        //get each word and place in words
         while (getline(ss,s,' ')) {
             words.push_back(s);
         }

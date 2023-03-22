@@ -1,0 +1,1 @@
+Some students may find function programming to be hard be cause it is basically all recursion.
