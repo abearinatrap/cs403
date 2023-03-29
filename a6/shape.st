@@ -5,7 +5,6 @@ Object subclass: Shape
       <category: 'instance creation'>
       | r |
       r := super new.
-      r init.
       r setName: aName.
       ^r
    ]
