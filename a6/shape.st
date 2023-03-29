@@ -1,5 +1,5 @@
 Object subclass: #Shape
-   instanceVariableNames: 'name'
+   | name |
 
    Shape class >> new: aName [
       | r |
@@ -9,22 +9,22 @@ Object subclass: #Shape
       ^r
    ]
 
-
-   Shape >> setName: aString
+   setName: aString [
       name := aString
+   ]
 
-   Shape >> getName
-      ^ name
-
-
-   Shape >> getArea
+   getArea [
       self subclassResponsibility
+   ]
 
-   Shape >> getVolume
+   getVolume [
       self subclassResponsibility
+   ]
 
-   Shape >> test: aCondition
+   test: aCondition [
       self subclassResponsibility
+   ]
 
-   Shape >> getInfo
+   getInfo [
       self subclassResponsibility
+   ]
