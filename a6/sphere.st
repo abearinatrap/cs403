@@ -1,22 +1,36 @@
-Shape subclass: #Sphere
-   instanceVariableNames: 'radius'
+Shape subclass: Sphere [
+   | radius |
 
-   Sphere class >> new: aName radius: tempRadius
-      ^ self new
-         setName: aName;
-         setRadius: tempRadius;
-         yourself
+   Sphere class >> new: aName radius: tempRadius [
+      | r |
+      r := super new.
+      r setName: tempName.
+      r setRadius: tempRadius.
+      ^r
+   ]
 
-   Sphere >> setRadius: tempval
-      radius := tempval
+   setRadius: tempRadius [
+      radius := tempRadius
+   ]
 
-   Sphere >> getArea
+   getRadius [
+      ^ radius
+   ]
+
+   getArea [
       ^ 4 * 3.14 * radius * radius
+   ]
 
-   Sphere >> getVolume
+   getVolume [
       ^ 4/3 * 3.14 * radius * radius * radius
+   ]
+      
+   test: condlist [
 
-   Sphere >> test: condlist
+   ]
 
-   Sphere >> getInfo
+   getInfo [
       ^ 'Sphere: ' , self getName , '\nRadius: ' , radius printString
+   ]
+
+]

@@ -1,32 +1,36 @@
 Object subclass: Shape [
-   | name |
+	| name |
 
-   Shape class >> new: aName [
-      <category: 'instance creation'>
-      | r |
-      r := super new.
-      r setName: aName.
-      ^r
-   ]
+	Shape class >> new tempName [
+		<category: 'instance creation'>
+		| r |
+		r := super new.
+		r setName: tempName.
+		^r
+	]
 
-   setName: aString [
-      name := aString
-   ]
+	setName: aString [
+		name := aString
+	]
 
-   getArea [
-      self subclassResponsibility
-   ]
+	getName: [
+		^ name
+	]
 
-   getVolume [
-      self subclassResponsibility
-   ]
+	getArea [
+		self subclassResponsibility
+	]
 
-   test: aCondition [
-      self subclassResponsibility
-   ]
+	getVolume [
+		self subclassResponsibility
+	]
 
-   getInfo [
-      self subclassResponsibility
-   ]
-   
+	test: aCondition [
+		self subclassResponsibility
+	]
+
+	getInfo [
+		self subclassResponsibility
+	]
+	
 ]
