@@ -1,4 +1,4 @@
-Object subclass: Shape
+Object subclass: Shape [
    | name |
 
    Shape class >> new: aName [
@@ -28,3 +28,5 @@ Object subclass: Shape
    getInfo [
       self subclassResponsibility
    ]
+   
+]
