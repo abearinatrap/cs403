@@ -1,7 +1,8 @@
-Object subclass: #Shape
+Object subclass: Shape
    | name |
 
    Shape class >> new: aName [
+      <category: 'instance creation'>
       | r |
       r := super new.
       r init.
