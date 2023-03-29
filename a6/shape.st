@@ -2,7 +2,11 @@ Object subclass: #Shape
    instanceVariableNames: 'name'
 
    Shape class >> new: aName
-      ^ self new setName: aName; yourself
+      | r |
+      r := super new.
+      r init.
+      r setName: aName.
+      ^r
 
 
    Shape >> setName: aString
