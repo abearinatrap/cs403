@@ -1,20 +1,15 @@
 Shape subclass: #Sphere
    instanceVariableNames: 'radius'
 
-   Sphere class >> new: aName radius: tempval
+   Sphere class >> new: aName radius: tempRadius
       ^ self new
          setName: aName;
-         setRadius: tempval;
+         setRadius: tempRadius;
          yourself
 
-   "accessors"
    Sphere >> setRadius: tempval
       radius := tempval
 
-   Sphere >> getRadius
-      ^ radius
-
-   "override methods"
    Sphere >> getArea
       ^ 4 * 3.14 * radius * radius
 
