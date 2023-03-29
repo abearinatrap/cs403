@@ -1,30 +1,54 @@
-Shape subclass: #Box
-   instanceVariableNames: 'length width height'
+Shape subclass: Box [
+	| length width height |
 
-   Box class >> new: aName length: tempLength width: tempWidth height: tempHeight 
-      ^ self new
-         setName: aName;
-         setLength: tempLength
-         setWidth: tempWidth
-         setHeight: tempHeight
-         yourself
+	Box class >> new: aName length: tempLength width: tempWidth height: tempHeight [
+		| r |
+		r := super new.
+		r setName: tempName.
+		r setLength: tempLength.
+        r setWidth: tempWidth.
+        r setHeight tempHeight.
+		^r
+	]
 
-   Box >> setLength: tempLength
-      height := tempLength
+	setLength: tempLength [
+        length := tempLength
+    ]
 
-   Box >> setWidth: tempWidth
-      width := tempWidth
+    setWidth: tempWidth [
+        width := tempWidth
+    ]
 
-   Box >> setHeight: tempHeight
-      height := tempHeight
+    setHeight: tempHeight [
+        height := tempHeight
+    ]
 
-   Box >> getArea
-      ^ 2 * length * width + 2 * length * height + 2 * width * height
+	getLength [
+		^ length
+	]
 
-   Box >> getVolume
-      ^ length * width * height
+    getWidth [
+		^ width
+	]
 
-   Box >> test: condlist
+    getHeight [
+		^ height
+	]
 
-   Box >> getInfo
-      ^ 'Box: ' , self getName , ', Lenght=', length printString, ', Width=', width printString, ', Height=', height printString
+	getArea [
+		^ 2 * length * width + 2 * length * height + 2 * width * height
+	]
+
+	getVolume [
+		^ length * width * height
+	]
+		
+	test: condlist [
+
+	]
+
+	getInfo [
+		^ 'Box: ' , self getName , ', Length=', length printString, ', Width=', width printString, ', Height=', height printString
+	]
+
+]

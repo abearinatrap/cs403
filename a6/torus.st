@@ -1,27 +1,45 @@
-Shape subclass: #Torus
-   instanceVariableNames: 'sradius bradius'
+Shape subclass: Torus [
+	| smallradius bigradius |
 
-   Torus class >> new: aName sradius: tempsRadius bradius: tempbRadius
-      ^ self new
-         setName: aName;
-         setSRadius: tempsRadius;
-         setBRadius: tempbRadius;
-         yourself
+	Torus class >> new: tempName smallradius: tempRadius bigradius: tempRadiusb [
+		| r |
+		r := super new.
+		r setName: tempName.
+		r setSmallRadius: tempRadius.
+      r setBigRadius: tempRadiusb.
+		^r
+	]
 
-   Torus >> setSRadius: tempRadius
-      radius := tempRadius
+	setSmallRadius: tempRadius [
+		smallradius := tempRadius
+	]
 
-   Torus >> setBRadius: tempRadius
-      radius := tempRadius
+	getSmallRadius [
+		^ smallradius
+	]
 
+   setBigRadius: tempRadius [
+		bigradius := tempRadius
+	]
 
-   Torus >> getArea
-      ^ 2 * 2 * 3.14 * 3.14 * bradius * sradius
+	getBigRadius [
+		^ bigradius
+	]
 
-   Torus >> getVolume
-      ^ 2 * 3.14 * 3.14 * sradius * sradius * bradius
+	getArea [
+		^ 2 * 2 * 3.14 * 3.14 * bigradius * smallradius
+	]
 
-   Torus >> test: condlist
+	getVolume [
+		^ 2 * 3.14 * 3.14 * smallradius * smallradius * bigradius
+	]
+		
+	test: condlist [
 
-   Torus >> getInfo
-      ^ 'Torus: ' , self getName , ', Small Radius=' , sradius printString, ', Big Radius=' , bradius printString
+	]
+
+	getInfo [
+		^ 'Torus: ' , self getName , ', Small Radius=' , smallradius printString, ', Big Radius=' , bigradius printString
+	]
+
+]

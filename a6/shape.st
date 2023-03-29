@@ -1,7 +1,7 @@
 Object subclass: Shape [
 	| name |
 
-	Shape class >> new tempName [
+	Shape class >> new: tempName [
 		<category: 'instance creation'>
 		| r |
 		r := super new.
@@ -13,7 +13,7 @@ Object subclass: Shape [
 		name := aString
 	]
 
-	getName: [
+	getName [
 		^ name
 	]
 

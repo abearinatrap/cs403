@@ -1,26 +1,45 @@
-Shape subclass: #Cylinder
-   instanceVariableNames: 'radius height'
+Shape subclass: Cylinder[
+   | radius height |
 
-   Cylinder class >> new: aName radius: tempRadius height: tempHeight
-      ^ self new
-         setName: aName;
-         setRadius: tempRadius;
-         setHeight: tempHeight
-         yourself
+   Cylinder class >> new: tempName radius: tempRadius height: tempHeight [
+      | r |
+      r := super new.
+      r setName: tempName.
+      r setRadius: tempRadius.
+      r setHeight: tempHeight.
+      ^r
+   ]
 
-   Cylinder >> setRadius: tempRadius
+   setRadius: tempRadius [
       radius := tempRadius
+   ]
 
-   Cylinder >> setHeight: tempHeight
+   getRadius [
+      ^ radius
+   ]
+
+   setHeight: tempHeight [
       height := tempHeight
+   ]
 
-   Cylinder >> getArea
+   getHeight [
+      ^ height
+   ]
+
+   getArea [
       ^ 2 * 3.14 * radius * height + 2 * 3.14 * radius * radius
+   ]
 
-   Cylinder >> getVolume
+   getVolume [
       ^ 3.14 * radius * radius * height
+   ]
+      
+   test: condlist [
 
-   Cylinder >> test: condlist
+   ]
 
-   Cylinder >> getInfo
+   getInfo [
       ^ 'Cylinder: ' , self getName , ', Radius=' , radius printString, ', Height=', height printString
+   ]
+
+]
