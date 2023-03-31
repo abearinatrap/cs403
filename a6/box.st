@@ -1,7 +1,7 @@
 Shape subclass: Box [
 	| length width height |
 
-	Box class >> new: aName length: tempLength width: tempWidth height: tempHeight [
+	Box class >> new: tempName length: tempLength width: tempWidth height: tempHeight [
 		| r |
 		r := super new.
 		r setName: tempName.
