@@ -25,7 +25,7 @@ Object subclass: Shape [
 		self subclassResponsibility
 	]
 
-	test: aCondition [
+	test: condlist [
 		self subclassResponsibility
 	]
 

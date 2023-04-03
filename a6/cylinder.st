@@ -27,19 +27,128 @@ Shape subclass: Cylinder[
    ]
 
    getArea [
-      ^ 2 * 3.14 * radius * height + 2 * 3.14 * radius * radius
+      ^ (2 * Float pi * radius * height) + (2 * Float pi * radius * radius)
    ]
 
    getVolume [
-      ^ 3.14 * radius * radius * height
+      ^ Float pi * radius * radius * height
    ]
       
    test: condlist [
-
+      | sz |
+		sz := condlist size.
+		1 to: sz do: [:i |
+			| currentCond name op val shapename bad |
+			currentCond := condlist at: i.
+			shapename := 'cylinder'.
+			name := currentCond at: 1.
+			op := currentCond at: 2.
+			val := currentCond at: 3.
+			bad := false.
+			(name = 'type') ifTrue: [
+				(op = '==') ifTrue: [
+					(shapename = val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '~=') ifTrue: [
+					(shapename ~= val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '<') ifTrue: [
+					(shapename < val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '>') ifTrue: [
+					(shapename > val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '<=') ifTrue: [
+					(shapename <= val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '>=') ifTrue: [
+					(shapename >= val) ifFalse: [
+						^ false
+					]
+				].
+			].
+			val := val asNumber.
+			(name = 'area') ifTrue: [
+				(op = '==') ifTrue: [
+					(self getArea = val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '~=') ifTrue: [
+					(self getArea ~= val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '<') ifTrue: [
+					(self getArea < val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '>') ifTrue: [
+					(self getArea > val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '<=') ifTrue: [
+					(self getArea <= val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '>=') ifTrue: [
+					(self getArea >= val) ifFalse: [
+						^ false
+					]
+				].
+			].
+			(name = 'volume') ifTrue: [
+				(op = '==') ifTrue: [
+					(self getVolume = val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '~=') ifTrue: [
+					(self getVolume ~= val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '<') ifTrue: [
+					(self getVolume < val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '>') ifTrue: [
+					(self getVolume > val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '<=') ifTrue: [
+					(self getVolume <= val) ifFalse: [
+						^ false
+					]
+				].
+				(op = '>=') ifTrue: [
+					(self getVolume >= val) ifFalse: [
+						^ false
+					]
+				].
+			].
+		].
+		^ true
    ]
 
    getInfo [
-      ^ 'Cylinder: ' , self getName , ', Radius=' , radius printString, ', Height=', height printString
+      ^ 'Cylinder: ' , self getName , ', Radius=' , radius printString, ', Height=', height printString, '
+	Surface area: ', self getArea printString, ', Volume: ', self getVolume printString
    ]
 
 ]
