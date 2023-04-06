@@ -34,3 +34,9 @@ Object subclass: Shape [
 	]
 	
 ]
+
+Number extend [
+	outString [
+		^ ((self roundTo:0.01) asScaledDecimal:2) asString
+	]
+]

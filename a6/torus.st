@@ -147,8 +147,8 @@ Shape subclass: Torus [
 	]
 
 	getInfo [
-		^ 'Torus: ' , self getName , ', Small Radius=' , smallradius printString, ', Big Radius=' , bigradius printString, '
-	Surface area: ', self getArea printString, ', Volume: ', self getVolume printString
+		^ 'Torus: ' , self getName , ', Small Radius=' , smallradius outString, ', Big Radius=' , bigradius outString, '
+	Surface area: ', self getArea outString, ', Volume: ', self getVolume outString
 	]
 
 ]

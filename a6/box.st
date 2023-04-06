@@ -156,8 +156,8 @@ Shape subclass: Box [
 	]
 
 	getInfo [
-		^ 'Box: ' , self getName , ', Length=', length printString, ', Width=', width printString, ', Height=', height printString, '
-	Surface area: ', self getArea printString, ', Volume: ', self getVolume printString
+		^ 'Box: ' , self getName , ', Length=', length outString, ', Width=', width outString, ', Height=', height outString, '
+	Surface area: ', self getArea outString, ', Volume: ', self getVolume outString
 	]
 
 ]

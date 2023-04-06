@@ -221,6 +221,7 @@ avg(Volume)=', (totalVolume / sz) printString) displayNl.
     shapes do: [:each | each getInfo displayNl.]
   ]
 ]
+
 " <comment: 'need to read in shapes from shapes.dat into list of shapes'>"
 Shapes := OrderedCollection new.
 "
@@ -230,7 +231,17 @@ Shapes := OrderedCollection new.
   Array streamContents: [ :out |
     [ characterStream atEnd ] whileFalse: [ out nextPut: characterStream nextLine ] ] ] printNL. 
 "
-f := FileStream open: 'shapes.dat' mode: FileStream read.
+(Smalltalk arguments = Array new ) ifTrue: [
+  'Usage: shape.st sphere.st cylinder.st torus.st box.st -f main.st shape_file' displayNl.
+  ObjectMemory quit.
+].
+
+fName := Smalltalk arguments at: 1.
+f := FileStream open: fName mode: FileStream read ifFail: [
+  ('Unable to open ', fName displayString, ' for reading') displayNl.
+  ObjectMemory quit.
+].
+
 "f size printNl."
 [f atEnd] whileFalse:[
   | l w h r br |
@@ -311,7 +322,6 @@ a displayNl.
   ].
 
   actualShapes := m condShapes: Shapes conditions: tcond.
-  actualShapes displayNl.
 
   "select on input here"
   ( action = 'count') ifTrue: [

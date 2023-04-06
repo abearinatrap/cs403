@@ -138,8 +138,8 @@ Shape subclass: Sphere [
 	]
 
 	getInfo [
-		^ 'Sphere: ' , self getName , ' Radius=' , radius printString, '
-	Surface area: ', self getArea printString, ', Volume: ', self getVolume printString.
+		^ 'Sphere: ' , self getName , ' Radius=' , radius outString, '
+	Surface area: ', self getArea outString, ', Volume: ', self getVolume outString.
 	]
 
 ]

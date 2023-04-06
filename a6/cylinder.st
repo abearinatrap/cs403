@@ -147,8 +147,8 @@ Shape subclass: Cylinder[
    ]
 
    getInfo [
-      ^ 'Cylinder: ' , self getName , ', Radius=' , radius printString, ', Height=', height printString, '
-	Surface area: ', self getArea printString, ', Volume: ', self getVolume printString
+      ^ 'Cylinder: ' , self getName , ', Radius=' , radius outString, ', Height=', height outString, '
+	Surface area: ', self getArea outString, ', Volume: ', self getVolume outString
    ]
 
 ]
