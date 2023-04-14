@@ -19,7 +19,7 @@
 (define pi (* 4 (atan 1 1)))
 (define skip 0)
 
-(define (printstuff lines)
+(define (printstuff lines command)
     (let () 
         (if (string=? command "count") (let ((output "There are ")) 
             (newline)
@@ -109,7 +109,9 @@
             (display output)
             (newline)
         ))
+        (display "yo0")
     )
+    (display "yo1")
 )
 
 (define (performm command filen args)
@@ -321,7 +323,8 @@
             ;(set! lines (cons (split-string line) lines))
             (loop (read-line input-port))))))
     ;(display lines)
-    (if (not (= skip 1)) (printstuff lines))
+    (if (not (= skip 1)) (printstuff lines command))
+    (display "yo")
 )
 
 (define (perform command filen . args)
