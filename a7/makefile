@@ -1,2 +1,2 @@
 all:
-    scheme --quiet < test.scm
+	scheme --quiet < test.scm
