@@ -109,9 +109,7 @@
             (display output)
             (newline)
         ))
-        (display "yo0")
     )
-    (display "yo1")
 )
 
 (define (performm command filen args)
@@ -324,13 +322,12 @@
             (loop (read-line input-port))))))
     ;(display lines)
     (if (not (= skip 1)) (printstuff lines command))
-    (display "yo")
 )
 
 (define (perform command filen . args)
-    (if (not (file-exists? filen)) (begin (display (string-append "\nUnable to open " filen " for reading.\n\n"))) ( 
+    (if (not (file-exists? filen)) (begin (display (string-append "\nUnable to open " filen " for reading.\n\n"))) 
         (performm command filen args)
-    ))
+    )
 )
 
 
