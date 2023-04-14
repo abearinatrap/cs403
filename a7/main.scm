@@ -320,9 +320,7 @@
             ;(set! lines (cons (split-string line) lines))
             (loop (read-line input-port))))))
     ;(display lines)
-    (if (= skip 1) () (
-        (printstuff lines)
-    ))
+    (if (not (= skip 1)) (printstuff lines))
 )
 
 (define (perform command filen . args)
