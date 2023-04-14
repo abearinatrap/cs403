@@ -1,2 +1,3 @@
 (load "main.scm")
-(perform "total" "shapes.dat" 5)
+(perform "print" "shapes.dat" 5)
+(perform "max" "shapes.dat")
