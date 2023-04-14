@@ -235,7 +235,7 @@
                 ; fifth element is the string printed out when showing it
 
                 ; if statement to check if shape should be added or not
-                (if (zero? (remainder (length args) 3)))
+                (if (zero? (remainder (length args) 3))
                     (let loop ((i 0) (n (length args))) 
                         (cond ((> i (- n 3)) '0)
                         (else 
@@ -312,7 +312,7 @@
                         ))
                     )
                     ;(let () (display "Incorrect number of arguments.\n") (set! skip 1))
-                    (if (zero? (length args)) () (if (zero? skip) (let () (display (string-append "Incorrect number of arguments.\n" (number->string (length args)))) (set! skip 1))))
+                    (if (zero? (length args)) () (if (zero? skip) (let () (display (string-append "Incorrect number of arguments.\n")) (set! skip 1))))
                 )
                 
                 (if (equal? addl 0) (set! lines (append lines (list outputarr))))
