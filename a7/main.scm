@@ -247,7 +247,7 @@
             (cond ((> i (- n 1)) '0)
             (else 
                 (set! totala (+ totala (list-ref (list-ref lines i) 2) ))
-                (set! totalv (+ totala (list-ref (list-ref lines i) 3) ))
+                (set! totalv (+ totalv (list-ref (list-ref lines i) 3) ))
 
                 (loop (+ i 1) n)
             ))
@@ -264,7 +264,7 @@
             (cond ((> i (- n 1)) '0)
             (else 
                 (set! totala (+ totala (list-ref (list-ref lines i) 2) ))
-                (set! totalv (+ totala (list-ref (list-ref lines i) 3) ))
+                (set! totalv (+ totalv (list-ref (list-ref lines i) 3) ))
 
                 (loop (+ i 1) n)
             ))
@@ -283,7 +283,7 @@
             (cond ((> i (- n 1)) '0)
             (else 
                 (if (< ma (list-ref (list-ref lines i) 2)) (set! ma (list-ref (list-ref lines i) 2) ))
-                (if (< mv (list-ref (list-ref lines i) 3)) (set! ma (list-ref (list-ref lines i) 3) ))
+                (if (< mv (list-ref (list-ref lines i) 3)) (set! mv (list-ref (list-ref lines i) 3) ))
                 (loop (+ i 1) n)
             ))
         )
@@ -293,7 +293,7 @@
         (display output)
         (newline)
     ))
-    (if (string=? command "max") (let ((ma 0) (mv 0) (output "min(Surface Area)=")) 
+    (if (string=? command "max") (let ((ma 0) (mv 0) (output "max(Surface Area)=")) 
         (newline)
         (set! ma (list-ref (list-ref lines 0) 2))
         (set! mv (list-ref (list-ref lines 0) 3))
@@ -301,7 +301,7 @@
             (cond ((> i (- n 1)) '0)
             (else 
                 (if (> ma (list-ref (list-ref lines i) 2)) (set! ma (list-ref (list-ref lines i) 2) ))
-                (if (> mv (list-ref (list-ref lines i) 3)) (set! ma (list-ref (list-ref lines i) 3) ))
+                (if (> mv (list-ref (list-ref lines i) 3)) (set! mv (list-ref (list-ref lines i) 3) ))
                 (loop (+ i 1) n)
             ))
         )
