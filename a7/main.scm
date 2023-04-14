@@ -17,9 +17,11 @@
 
 (define lines '())
 (define pi (* 4 (atan 1 1)))
+(define skip 0)
 (define (perform command filen . args)
     (let ((input-port (open-input-file filen)))
         (set! lines ())
+        (set! skip 0)
         (let loop ((line (read-line input-port)))
         (cond ((eof-object? line)
             (close-input-port input-port)
@@ -139,8 +141,7 @@
                 ; fifth element is the string printed out when showing it
 
                 ; if statement to check if shape should be added or not
-                (if (zero? (length args))
-                    ()
+                (if (= 1 (\ (length args) 3))
                     (let loop ((i 0) (n (length args))) 
                         (cond ((> i (- n 3)) '0)
                         (else 
@@ -216,13 +217,16 @@
                             (loop (+ i 3) n)
                         ))
                     )
+                    (if (zero? (length args)) () (let () (display "Incorrect number of arguments.\n") (set! skip 1)))
                 )
+                
                 (if (equal? addl 0) (set! lines (append lines (list outputarr))))
                 
             )
             ;(set! lines (cons (split-string line) lines))
             (loop (read-line input-port))))))
     ;(display lines)
+    (if (= skip 1) 'done')
     (if (string=? command "count") (let ((output "There are ")) 
         (newline)
         (set! output (string-append output (number->string (length lines))))
