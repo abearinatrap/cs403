@@ -57,4 +57,4 @@ avg(Op, Ref, Avg) :-
     ),
     sum_list(List, Total),
     length(List, Len),
-    Avg is Total / Len.
+    (Len = 0 -> Avg is 0; Avg is Total / Len).
